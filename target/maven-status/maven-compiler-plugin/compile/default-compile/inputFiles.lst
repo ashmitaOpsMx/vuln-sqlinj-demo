@@ -1,0 +1,4 @@
+/home/opsmx/ssd-repos/vuln-sqlinj-demo/src/main/java/com/example/vulnapp/VulnAppApplication.java
+/home/opsmx/ssd-repos/vuln-sqlinj-demo/src/main/java/com/example/vulnapp/controller/AccountController.java
+/home/opsmx/ssd-repos/vuln-sqlinj-demo/src/main/java/com/example/vulnapp/model/Account.java
+/home/opsmx/ssd-repos/vuln-sqlinj-demo/src/main/java/com/example/vulnapp/repo/AccountRepository.java

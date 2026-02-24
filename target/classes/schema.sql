@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS accounts;
+
+CREATE TABLE accounts (
+  id BIGINT PRIMARY KEY,
+  owner_name VARCHAR(100) NOT NULL,
+  balance DOUBLE NOT NULL
+);
