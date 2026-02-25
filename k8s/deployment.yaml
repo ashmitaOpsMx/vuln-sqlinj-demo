@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: app
-          image: docker.io/ashmitathapar/vuln-sqlinj-demo:2.0
+          image: docker.io/ashmitathapar/vuln-sqlinj-demo:3.0
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
