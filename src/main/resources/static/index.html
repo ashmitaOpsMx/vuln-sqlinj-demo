@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SQL Injection Demo</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 80px;
+            background-color: #f4f6f8;
+        }
+
+        h1 {
+            margin-bottom: 40px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 20px;
+            font-size: 16px;
+            text-decoration: none;
+            border-radius: 6px;
+            color: white;
+        }
+
+        .normal {
+            background-color: #2e7d32;
+        }
+
+        .attack {
+            background-color: #c62828;
+        }
+
+        .button:hover {
+            opacity: 0.85;
+        }
+    </style>
+</head>
+<body>
+
+<h1>SQL Injection Demo Application</h1>
+
+<a class="button normal"
+   href="/api/accounts?owner=Alice"
+   target="_blank">
+   ✅ Normal Query (Alice)
+</a>
+
+<a class="button attack"
+   href="/api/accounts?owner=Alice'%20OR%20'1'='1"
+   target="_blank">
+   🔴 SQL Injection Attack
+</a>
+
+</body>
+</html>
