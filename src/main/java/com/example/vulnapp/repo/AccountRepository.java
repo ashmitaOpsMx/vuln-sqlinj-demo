@@ -8,6 +8,7 @@ import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.jdbc.datasource.DataSourceUtils;
 
 @Repository
 public class AccountRepository {
@@ -23,10 +24,11 @@ public class AccountRepository {
      * - Using Statement
      * - Concatenating user input directly into SQL
      */
-    public List<Account> findByOwnerUnsafe(String owner) throws SQLException {
-        Connection conn = DataSourceUtils.getConnection(dataSource);
+public List<Account> findByOwnerUnsafe(String owner) throws SQLException {
 
-        // 🔥 VULNERABLE QUERY (do not do this in real apps)
+    Connection conn = DataSourceUtils.getConnection(dataSource);
+
+    try {
         String sql = "SELECT id, owner_name, balance FROM accounts WHERE owner_name = '" + owner + "'";
 
         try (Statement stmt = conn.createStatement();
@@ -42,5 +44,10 @@ public class AccountRepository {
             }
             return results;
         }
+
+    } finally {
+        // 🔥 THIS IS CRITICAL
+        DataSourceUtils.releaseConnection(conn, dataSource);
     }
+}
 }
